@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TST Modding</title>
+<style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#000;color:#ff3333;font-family:Arial,Helvetica,sans-serif;min-height:100vh;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;z-index:-2;background:linear-gradient(120deg,#000,#120000,#650000,#080000,#000);background-size:400% 400%;animation:bg 10s ease infinite}
+body:after{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradient(circle at 50% 20%,#f001,transparent 45%);pointer-events:none}
+@keyframes bg{0%,100%{background-position:0 50%}50%{background-position:100% 50%}}
+button,a{font:inherit}.hidden{display:none!important}.wrap{max-width:980px;margin:auto;padding:18px}
+#entrance{min-height:100vh;display:grid;place-items:center;text-align:center;padding:20px}.enterbox{background:#080606dd;border:1px solid #3b1717;border-radius:20px;padding:42px 25px;box-shadow:0 20px 60px #000b}.enterbox h1{color:#fff;font-size:clamp(42px,10vw,82px);margin:0;text-shadow:0 0 25px red}.enterbox p{color:#888}.enter{background:#180606;border:1px solid #ff3030;color:#fff;padding:15px 28px;border-radius:12px;cursor:pointer;box-shadow:0 0 30px #f003;font-weight:800}.enter:hover{background:#ff3030}
+.nav{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:24px;padding:10px;background:#080606d9;border:1px solid #351616;border-radius:14px;position:sticky;top:10px;z-index:10;backdrop-filter:blur(10px)}
+.nav button,.smallbtn{background:#110909;color:#ff4040;border:1px solid #4d2222;border-radius:10px;padding:11px 17px;cursor:pointer}.nav button:hover,.smallbtn:hover{background:#ff3030;color:#fff}
+.hero{text-align:center;padding:55px 15px 35px}.hero h1{font-size:clamp(38px,8vw,76px);margin:0;color:#fff;text-shadow:0 0 25px red}.hero p{color:#999}.home-actions{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:15px}
+.panel,.card{background:#0d0b0fdd;border:1px solid #352020;border-radius:18px;padding:22px;box-shadow:0 12px 35px #0007}.panel h2,.card h2{margin-top:0;color:#ff4040}.muted{color:#999;font-size:14px;line-height:1.5}.discord,.download{display:block;text-decoration:none;text-align:center;background:#e22;color:#fff;padding:13px;border-radius:10px;font-weight:800;margin-top:12px}.discord:hover,.download:hover{background:#fff;color:#900}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:15px}.card{position:relative}.tag{display:inline-block;font-size:10px;letter-spacing:1px;color:#ff7777;border:1px solid #4d2020;border-radius:999px;padding:5px 8px;margin-bottom:10px}.file{font:12px monospace;color:#f77;background:#050505;border:1px solid #281313;border-radius:9px;padding:10px;word-break:break-all}.terminal{position:relative;background:#050505;border:1px solid #2e1a1a;border-radius:10px;padding:14px 55px 14px 14px;color:#ff5555;font:12px monospace;white-space:pre-wrap;overflow-wrap:anywhere;margin-top:12px}.copy{position:absolute;right:8px;top:8px;background:#171313;color:#fff;border:1px solid #442222;border-radius:8px;width:38px;height:38px;cursor:pointer}.status{color:#ff8888;font-size:11px;min-height:16px;margin-top:5px}
+.profile{text-align:center}.profile img{width:150px;height:150px;object-fit:cover;border-radius:50%;border:3px solid #ff2020;box-shadow:0 0 35px #f00;display:block;margin:0 auto 15px}.profile h2{color:#fff;margin:5px}.updates{margin-top:25px}.updates-box{display:none;background:#070707;border:1px solid #352020;border-radius:10px;padding:15px;color:#aaa}.updates-box.show{display:block}.footer{text-align:center;color:#666;padding:40px 0 20px;font-size:13px}
+#audioPlayer{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none;border:0}
+@media(max-width:600px){.wrap{padding:12px}.hero{padding-top:35px}.nav{position:static}}
+</style>
+</head>
+<body>
+<iframe id="audioPlayer" src="about:blank" title="Background music" allow="autoplay; encrypted-media" aria-hidden="true"></iframe>
+<section id="entrance"><div class="enterbox"><h1>TST MODDING</h1><p>WELCOME</p><button class="enter" id="continue">CLICK TO CONTINUE</button></div></section>
+<main id="site" class="wrap hidden">
+<nav class="nav"><button data-page="home">HOME</button><button data-page="apks">APKs</button><button data-page="cool">COOL PEOPLE</button></nav>
+<section id="home" class="page"><div class="hero"><h1>TST MODDING</h1><p>COMMUNITY • DOWNLOADS • TST</p></div><div class="home-actions"><div class="panel"><h2>JOIN DISCORD</h2><p class="muted">Join the TST Modding community.</p><a class="discord" href="https://discord.gg/xsypeWEJC" target="_blank" rel="noopener">JOIN DISCORD</a></div><div class="panel"><h2>COOL PEOPLE</h2><p class="muted">Browse the TST profile.</p><button class="smallbtn" data-page="cool">OPEN COOL PEOPLE</button></div></div></section>
+<section id="apks" class="page hidden"><h1 style="color:#fff">DOWNLOADS</h1><div class="grid">
+<article class="card"><span class="tag">OFFICIAL RELEASE</span><h2>Singularity</h2><p class="muted">Standalone release page.</p><a class="download" href="https://github.com/Lumince/singularity/releases/latest" target="_blank" rel="noopener">⇩ OPEN RELEASE</a></article>
+<article class="card"><span class="tag">ANDROID</span><h2>UG Android</h2><p class="muted">User-provided downloadable package.</p><a class="download" href="downloads/UG-Android.html.zip" download>⇩ DOWNLOAD</a></article>
+<article class="card"><span class="tag">ANDROID • ARM64</span><h2>TST Client ARM64</h2><p class="muted">User-provided ARM64 package.</p><a class="download" href="downloads/TSTCLIENT_ARM64_v8a.zip" download>⇩ DOWNLOAD</a></article>
+<article class="card"><span class="tag">ANDROID</span><h2>Gorilla Tag</h2><p class="muted">User-provided package.</p><a class="download" href="downloads/ii-menu-quest-tag-android.zip" download>⇩ DOWNLOAD</a></article>
+<article class="card"><span class="tag">ANDROID</span><h2>Big Scary Menu</h2><p class="muted">Menu package and terminal.</p><div class="terminal">su -c "sh '/storage/emulated/0/Download/BigScary-JaSC-Android/run-android.sh'"<button class="copy" data-copy="su -c &quot;sh '/storage/emulated/0/Download/BigScary-JaSC-Android/run-android.sh'&quot;">▢</button></div><div class="status"></div><a class="download" href="downloads/BigScary-JaSC-Android.zip" download>⇩ DOWNLOAD</a></article>
+</div><div class="card updates"><h2>Updates</h2><button class="smallbtn" id="showUpdates">SHOW UPDATES</button><div id="updatesBox" class="updates-box"><p>Singularity release information:</p><a style="color:#ff5555" href="https://github.com/Lumince/singularity/releases/latest" target="_blank" rel="noopener">OPEN LATEST RELEASE</a></div></div></section>
+<section id="cool" class="page hidden"><h1 style="color:#fff">COOL PEOPLE</h1><div class="card profile"><img src="IMG_2356.gif" alt="TST profile picture"><h2>TST</h2><p class="muted">TST community profile</p></div></section>
+
+<footer class="footer">TST MODDING</footer>
+</main>
+<script>
+const entrance=document.getElementById('entrance'),site=document.getElementById('site');
+document.getElementById('continue').onclick=()=>{entrance.classList.add('hidden');site.classList.remove('hidden');const p=document.getElementById('audioPlayer');p.src='https://www.youtube.com/embed/BeFd2EFFmXg?autoplay=1&loop=1&playlist=BeFd2EFFmXg&controls=0&playsinline=1&rel=0';setTimeout(()=>{try{p.contentWindow.postMessage(JSON.stringify({event:'command',func:'stopVideo',args:[]}), '*')}catch(e){}},3600000)};
+const pages=document.querySelectorAll('.page');function show(id){pages.forEach(p=>p.classList.toggle('hidden',p.id!==id));scrollTo({top:0,behavior:'smooth'})}document.querySelectorAll('[data-page]').forEach(b=>b.onclick=()=>show(b.dataset.page));
+document.querySelectorAll('.copy').forEach(b=>b.onclick=async()=>{const s=b.closest('.card').querySelector('.status');try{await navigator.clipboard.writeText(b.dataset.copy);b.textContent='✓';s.textContent='Copied';setTimeout(()=>{b.textContent='▢';s.textContent=''},1000)}catch(e){s.textContent='Copy unavailable'}});
+document.getElementById('showUpdates').onclick=()=>{const x=document.getElementById('updatesBox');x.classList.toggle('show');document.getElementById('showUpdates').textContent=x.classList.contains('show')?'HIDE UPDATES':'SHOW UPDATES'};
+</script></body></html>
